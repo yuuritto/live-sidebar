@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Live Sidebar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e10;
+      color: #efeff1;
+      line-height: 1.8;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .lang-switcher { display: flex; justify-content: flex-end; gap: 4px; padding: 16px 0 0; }
+    .lang-btn {
+      background: transparent; border: 1px solid #2f2f35; color: #adadb8;
+      padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+    }
+    .lang-btn:hover { border-color: #bf94ff; color: #efeff1; }
+    .lang-btn.active { background: #bf94ff; color: #0e0e10; border-color: #bf94ff; }
+    .back { display: inline-block; padding: 16px 0; color: #bf94ff; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    .updated { color: #adadb8; font-size: 0.9rem; margin-bottom: 32px; }
+    h2 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; color: #bf94ff; }
+    p, li { font-size: 0.95rem; color: #d3d3d8; margin-bottom: 12px; }
+    ul { padding-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a { color: #bf94ff; }
+    strong { color: #efeff1; }
+    footer { padding: 40px 0; text-align: center; color: #adadb8; font-size: 0.85rem; border-top: 1px solid #2f2f35; margin-top: 40px; }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ja')">JA</button>
+      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+      <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    </div>
+    <a href="./" class="back" data-lang="en" style="display:inline-block">&larr; Back</a>
+    <a href="./" class="back" data-lang="ja">&larr; トップに戻る</a>
+    <a href="./" class="back" data-lang="zh">&larr; 返回首页</a>
+    <a href="./" class="back" data-lang="ko">&larr; 돌아가기</a>
+
+    <!-- ENGLISH -->
+    <div data-lang="en" class="active">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last Updated: March 20, 2026</p>
+
+      <h2>Overview</h2>
+      <p>Live Sidebar is a Chrome browser extension that displays your Twitch followed channels and YouTube subscribed channels in a unified sidebar, showing their live streaming status. This Privacy Policy describes how Live Sidebar ("we", "our", or "the Extension") collects, uses, stores, and shares your information.</p>
+
+      <h2>Information We Collect</h2>
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Authentication Data</h3>
+      <p>When you connect your Twitch or YouTube account, the Extension receives OAuth tokens (access tokens and refresh tokens) that allow it to access your account data on your behalf. We do <strong>not</strong> collect or have access to your Twitch or YouTube passwords.</p>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Data Accessed via Twitch API</h3>
+      <ul>
+        <li>Your Twitch user ID and display name</li>
+        <li>Your list of followed channels</li>
+        <li>Live streaming status of your followed channels (stream title, game name, viewer count, thumbnails)</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Data Accessed via YouTube API</h3>
+      <ul>
+        <li>Your YouTube channel ID and channel title</li>
+        <li>Your list of subscribed channels</li>
+        <li>Live streaming status of your subscribed channels (stream title, viewer count, thumbnails)</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Data We Do NOT Collect</h3>
+      <ul>
+        <li>We do <strong>not</strong> collect your browsing history or web activity</li>
+        <li>We do <strong>not</strong> collect personal information such as your name, email address, or physical address</li>
+        <li>We do <strong>not</strong> collect payment information (payments, if any, are processed entirely by third-party payment providers)</li>
+        <li>We do <strong>not</strong> collect analytics or usage tracking data</li>
+      </ul>
+
+      <h2>How We Use Your Data</h2>
+      <p>All data accessed by Live Sidebar is used <strong>solely</strong> to provide the core functionality of the Extension:</p>
+      <ul>
+        <li>Displaying your followed/subscribed channels and their live status in the sidebar</li>
+        <li>Maintaining your authenticated session with Twitch and YouTube</li>
+        <li>Sending desktop notifications for live stream events (if enabled by you)</li>
+      </ul>
+      <p>We do <strong>not</strong> use your data for advertising, marketing, analytics, or any purpose unrelated to the Extension's functionality.</p>
+
+      <h2>Data Storage</h2>
+      <ul>
+        <li>All data (OAuth tokens, channel lists, and cached streaming data) is stored <strong>locally on your device</strong> using Chrome's <code>chrome.storage.local</code> API</li>
+        <li><strong>No data is transmitted to or stored on any external server operated by us</strong></li>
+        <li>Twitch token exchange and refresh operations are processed through a secure proxy server that handles authentication only and does not store any user data</li>
+        <li>Cached channel data is automatically refreshed at regular intervals and replaced with current data</li>
+      </ul>
+
+      <h2>Data Sharing</h2>
+      <p>We do <strong>not</strong> sell, trade, license, or share your data with any third parties.</p>
+      <p>Your data is only transmitted to:</p>
+      <ul>
+        <li><strong>Twitch API</strong> (api.twitch.tv) — to retrieve your followed channels and their live status</li>
+        <li><strong>YouTube Data API</strong> (googleapis.com) — to retrieve your subscribed channels and their live status</li>
+        <li><strong>YouTube RSS Feeds</strong> (youtube.com/feeds) — to check for recent videos (no authentication required, no user data transmitted)</li>
+      </ul>
+
+      <h2>Data Retention and Deletion</h2>
+      <ul>
+        <li>All data is stored locally on your device and is not retained by us on any server</li>
+        <li>You can delete all stored data at any time by:
+          <ul>
+            <li>Clicking the "Disconnect" button for each platform within the Extension</li>
+            <li>Uninstalling the Extension (which removes all locally stored data)</li>
+          </ul>
+        </li>
+        <li>Upon disconnecting an account, all associated tokens and cached data for that platform are immediately deleted from local storage</li>
+      </ul>
+
+      <h2>Google API Services — Limited Use Disclosure</h2>
+      <p>Live Sidebar's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      <ul>
+        <li>We only use YouTube API data to display your subscribed channels and their live streaming status</li>
+        <li>We do not transfer YouTube API data to any third party</li>
+        <li>We do not use YouTube API data for advertising or any unrelated purpose</li>
+        <li>We do not allow humans to read YouTube API data except as necessary to provide the Extension's functionality to you</li>
+      </ul>
+
+      <h2>YouTube API Services</h2>
+      <p>Live Sidebar uses YouTube API Services. By using Live Sidebar, you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>.</p>
+      <p>You can revoke Live Sidebar's access to your YouTube data at any time through your <a href="https://myaccount.google.com/permissions">Google Account permissions page</a>.</p>
+
+      <h2>Twitch API Services</h2>
+      <p>Live Sidebar uses Twitch API Services. By using Live Sidebar, you also agree to be bound by the <a href="https://www.twitch.tv/p/legal/terms-of-service/">Twitch Terms of Service</a> and the <a href="https://www.twitch.tv/p/legal/developer-agreement/">Twitch Developer Services Agreement</a>.</p>
+      <p>You can revoke Live Sidebar's access to your Twitch data at any time through your <a href="https://www.twitch.tv/settings/connections">Twitch Connections settings</a>.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Live Sidebar is not directed at children under the age of 13 (or applicable age in your jurisdiction). We do not knowingly collect personal information from children.</p>
+
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "Last Updated" date at the top of this page. Your continued use of the Extension after changes are posted constitutes your acceptance of the updated Privacy Policy.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this Privacy Policy or your data, please contact us at:<br><strong>Email:</strong> <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
+    </div>
+
+    <!-- JAPANESE -->
+    <div data-lang="ja">
+      <h1>プライバシーポリシー</h1>
+      <p class="updated">最終更新日: 2026年3月20日</p>
+
+      <h2>概要</h2>
+      <p>Live Sidebarは、TwitchのフォローチャンネルとYouTubeの登録チャンネルのライブ配信状況を統合サイドバーに表示するChrome拡張機能です。本プライバシーポリシーは、Live Sidebar（以下「当拡張機能」）がお客様の情報をどのように収集、使用、保存、共有するかについて説明します。</p>
+
+      <h2>収集する情報</h2>
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">認証データ</h3>
+      <p>TwitchまたはYouTubeアカウントを連携する際、当拡張機能はOAuthトークン（アクセストークンおよびリフレッシュトークン）を受け取ります。お客様のTwitchまたはYouTubeのパスワードを収集したり、アクセスすることは<strong>ありません</strong>。</p>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Twitch APIを通じてアクセスするデータ</h3>
+      <ul>
+        <li>TwitchユーザーIDおよび表示名</li>
+        <li>フォロー中のチャンネル一覧</li>
+        <li>フォロー中チャンネルのライブ配信状況（配信タイトル、ゲーム名、視聴者数、サムネイル）</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">YouTube APIを通じてアクセスするデータ</h3>
+      <ul>
+        <li>YouTubeチャンネルIDおよびチャンネル名</li>
+        <li>登録チャンネル一覧</li>
+        <li>登録チャンネルのライブ配信状況（配信タイトル、視聴者数、サムネイル）</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">収集しないデータ</h3>
+      <ul>
+        <li>閲覧履歴やウェブ上の行動は収集<strong>しません</strong></li>
+        <li>氏名、メールアドレス、住所などの個人情報は収集<strong>しません</strong></li>
+        <li>決済情報は収集<strong>しません</strong>（決済がある場合、すべて第三者の決済プロバイダーが処理します）</li>
+        <li>分析データや利用追跡データは収集<strong>しません</strong></li>
+      </ul>
+
+      <h2>データの使用方法</h2>
+      <p>Live Sidebarがアクセスするすべてのデータは、当拡張機能のコア機能を提供するために<strong>のみ</strong>使用されます：</p>
+      <ul>
+        <li>フォロー/登録チャンネルとそのライブ状況をサイドバーに表示</li>
+        <li>TwitchおよびYouTubeとの認証セッションの維持</li>
+        <li>ライブ配信開始時のデスクトップ通知の送信（有効にした場合）</li>
+      </ul>
+      <p>広告、マーケティング、分析、その他当拡張機能の機能に関係のない目的でデータを使用することは<strong>ありません</strong>。</p>
+
+      <h2>データの保存</h2>
+      <ul>
+        <li>すべてのデータ（OAuthトークン、チャンネル一覧、キャッシュされた配信データ）はChromeの<code>chrome.storage.local</code> APIを使用して<strong>お客様のデバイスにローカル保存</strong>されます</li>
+        <li><strong>当方が運営する外部サーバーにデータが送信・保存されることはありません</strong></li>
+        <li>Twitchのトークン交換とリフレッシュは、認証のみを処理しユーザーデータを保存しないセキュアなプロキシサーバーを介して行われます</li>
+        <li>キャッシュされたチャンネルデータは定期的に自動更新され、最新のデータに置き換えられます</li>
+      </ul>
+
+      <h2>データの共有</h2>
+      <p>お客様のデータを第三者に販売、取引、ライセンス供与、共有することは<strong>ありません</strong>。</p>
+      <p>データの送信先は以下に限定されます：</p>
+      <ul>
+        <li><strong>Twitch API</strong>（api.twitch.tv）— フォローチャンネルとライブ状況の取得</li>
+        <li><strong>YouTube Data API</strong>（googleapis.com）— 登録チャンネルとライブ状況の取得</li>
+        <li><strong>YouTube RSSフィード</strong>（youtube.com/feeds）— 最新動画の確認（認証不要、ユーザーデータの送信なし）</li>
+      </ul>
+
+      <h2>データの保持と削除</h2>
+      <ul>
+        <li>すべてのデータはお客様のデバイスにローカル保存され、当方のサーバーには保持されません</li>
+        <li>以下の方法でいつでもすべての保存データを削除できます：
+          <ul>
+            <li>拡張機能内の各プラットフォームの「連携解除」ボタンをクリック</li>
+            <li>拡張機能のアンインストール（ローカル保存データがすべて削除されます）</li>
+          </ul>
+        </li>
+        <li>アカウントの連携を解除すると、そのプラットフォームに関連するすべてのトークンとキャッシュデータがローカルストレージから即座に削除されます</li>
+      </ul>
+
+      <h2>Google APIサービス — 限定使用の開示</h2>
+      <p>Live SidebarによるGoogle APIから受信した情報の使用および他のアプリへの転送は、限定使用の要件を含む<a href="https://developers.google.com/terms/api-services-user-data-policy">Google APIサービスのユーザーデータポリシー</a>に準拠します。</p>
+      <ul>
+        <li>YouTube APIデータは、登録チャンネルとそのライブ配信状況の表示にのみ使用します</li>
+        <li>YouTube APIデータを第三者に転送しません</li>
+        <li>YouTube APIデータを広告やその他無関係な目的に使用しません</li>
+        <li>拡張機能の機能を提供するために必要な場合を除き、人間がYouTube APIデータを閲覧することを許可しません</li>
+      </ul>
+
+      <h2>YouTube APIサービス</h2>
+      <p>Live SidebarはYouTube APIサービスを使用しています。Live Sidebarを使用することにより、<a href="https://www.youtube.com/t/terms">YouTube利用規約</a>にも同意したものとみなされます。</p>
+      <p><a href="https://myaccount.google.com/permissions">Googleアカウントの権限ページ</a>から、いつでもLive SidebarのYouTubeデータへのアクセスを取り消すことができます。</p>
+
+      <h2>Twitch APIサービス</h2>
+      <p>Live SidebarはTwitch APIサービスを使用しています。Live Sidebarを使用することにより、<a href="https://www.twitch.tv/p/legal/terms-of-service/">Twitch利用規約</a>および<a href="https://www.twitch.tv/p/legal/developer-agreement/">Twitch開発者サービス契約</a>にも同意したものとみなされます。</p>
+      <p><a href="https://www.twitch.tv/settings/connections">Twitchの接続設定</a>から、いつでもLive SidebarのTwitchデータへのアクセスを取り消すことができます。</p>
+
+      <h2>児童のプライバシー</h2>
+      <p>Live Sidebarは13歳未満（またはお住まいの地域の該当年齢未満）の児童を対象としていません。児童の個人情報を故意に収集することはありません。</p>
+
+      <h2>プライバシーポリシーの変更</h2>
+      <p>本プライバシーポリシーは随時更新される場合があります。変更はページ上部の「最終更新日」の更新により反映されます。変更の掲載後も当拡張機能を継続して使用することにより、更新されたプライバシーポリシーに同意したものとみなされます。</p>
+
+      <h2>お問い合わせ</h2>
+      <p>本プライバシーポリシーまたはお客様のデータに関するご質問は、以下までお問い合わせください：<br><strong>メール：</strong> <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
+    </div>
+
+    <!-- CHINESE -->
+    <div data-lang="zh">
+      <h1>隐私政策</h1>
+      <p class="updated">最后更新：2026年3月20日</p>
+
+      <h2>概述</h2>
+      <p>Live Sidebar 是一款 Chrome 浏览器扩展程序，可在统一的侧边栏中显示您关注的 Twitch 频道和 YouTube 订阅频道的直播状态。本隐私政策描述了 Live Sidebar（以下简称"我们"或"本扩展程序"）如何收集、使用、存储和共享您的信息。</p>
+
+      <h2>我们收集的信息</h2>
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">认证数据</h3>
+      <p>当您连接 Twitch 或 YouTube 帐户时，本扩展程序会接收 OAuth 令牌（访问令牌和刷新令牌），以代表您访问帐户数据。我们<strong>不会</strong>收集或访问您的 Twitch 或 YouTube 密码。</p>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">通过 Twitch API 访问的数据</h3>
+      <ul>
+        <li>您的 Twitch 用户 ID 和显示名称</li>
+        <li>您关注的频道列表</li>
+        <li>关注频道的直播状态（直播标题、游戏名称、观看人数、缩略图）</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">通过 YouTube API 访问的数据</h3>
+      <ul>
+        <li>您的 YouTube 频道 ID 和频道名称</li>
+        <li>您的订阅频道列表</li>
+        <li>订阅频道的直播状态（直播标题、观看人数、缩略图）</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">我们不收集的数据</h3>
+      <ul>
+        <li>我们<strong>不</strong>收集您的浏览历史或网络活动</li>
+        <li>我们<strong>不</strong>收集姓名、电子邮件地址或实际地址等个人信息</li>
+        <li>我们<strong>不</strong>收集支付信息（如有支付，均由第三方支付提供商处理）</li>
+        <li>我们<strong>不</strong>收集分析或使用追踪数据</li>
+      </ul>
+
+      <h2>数据使用方式</h2>
+      <p>Live Sidebar 访问的所有数据<strong>仅</strong>用于提供本扩展程序的核心功能：</p>
+      <ul>
+        <li>在侧边栏中显示您关注/订阅的频道及其直播状态</li>
+        <li>维护您与 Twitch 和 YouTube 的认证会话</li>
+        <li>发送直播事件的桌面通知（如您已启用）</li>
+      </ul>
+      <p>我们<strong>不会</strong>将您的数据用于广告、营销、分析或与本扩展程序功能无关的任何目的。</p>
+
+      <h2>数据存储</h2>
+      <ul>
+        <li>所有数据（OAuth 令牌、频道列表和缓存的直播数据）均使用 Chrome 的 <code>chrome.storage.local</code> API <strong>存储在您的设备本地</strong></li>
+        <li><strong>没有数据被传输到或存储在我们运营的任何外部服务器上</strong></li>
+        <li>Twitch 令牌交换和刷新操作通过安全代理服务器处理，该服务器仅处理认证，不存储任何用户数据</li>
+        <li>缓存的频道数据会定期自动刷新并替换为最新数据</li>
+      </ul>
+
+      <h2>数据共享</h2>
+      <p>我们<strong>不会</strong>向任何第三方出售、交易、许可或共享您的数据。</p>
+      <p>您的数据仅传输至：</p>
+      <ul>
+        <li><strong>Twitch API</strong>（api.twitch.tv）— 获取您关注的频道及其直播状态</li>
+        <li><strong>YouTube Data API</strong>（googleapis.com）— 获取您订阅的频道及其直播状态</li>
+        <li><strong>YouTube RSS 源</strong>（youtube.com/feeds）— 检查最新视频（无需认证，不传输用户数据）</li>
+      </ul>
+
+      <h2>数据保留和删除</h2>
+      <ul>
+        <li>所有数据存储在您的设备本地，不会保留在我们的任何服务器上</li>
+        <li>您可以随时通过以下方式删除所有存储的数据：
+          <ul>
+            <li>点击扩展程序内各平台的"断开连接"按钮</li>
+            <li>卸载扩展程序（将删除所有本地存储的数据）</li>
+          </ul>
+        </li>
+        <li>断开帐户连接后，该平台的所有相关令牌和缓存数据将立即从本地存储中删除</li>
+      </ul>
+
+      <h2>Google API 服务 — 有限使用披露</h2>
+      <p>Live Sidebar 对从 Google API 接收的信息的使用和转移将遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 服务用户数据政策</a>，包括有限使用要求。</p>
+      <ul>
+        <li>我们仅使用 YouTube API 数据来显示您订阅的频道及其直播状态</li>
+        <li>我们不会将 YouTube API 数据转移给任何第三方</li>
+        <li>我们不会将 YouTube API 数据用于广告或任何无关目的</li>
+        <li>除非为向您提供扩展程序功能所必需，否则我们不允许人类阅读 YouTube API 数据</li>
+      </ul>
+
+      <h2>YouTube API 服务</h2>
+      <p>Live Sidebar 使用 YouTube API 服务。使用 Live Sidebar 即表示您同意受 <a href="https://www.youtube.com/t/terms">YouTube 服务条款</a>的约束。</p>
+      <p>您可以随时通过 <a href="https://myaccount.google.com/permissions">Google 帐户权限页面</a>撤销 Live Sidebar 对您 YouTube 数据的访问权限。</p>
+
+      <h2>Twitch API 服务</h2>
+      <p>Live Sidebar 使用 Twitch API 服务。使用 Live Sidebar 即表示您同意受 <a href="https://www.twitch.tv/p/legal/terms-of-service/">Twitch 服务条款</a>和 <a href="https://www.twitch.tv/p/legal/developer-agreement/">Twitch 开发者服务协议</a>的约束。</p>
+      <p>您可以随时通过 <a href="https://www.twitch.tv/settings/connections">Twitch 连接设置</a>撤销 Live Sidebar 对您 Twitch 数据的访问权限。</p>
+
+      <h2>儿童隐私</h2>
+      <p>Live Sidebar 不面向 13 岁以下（或您所在辖区适用年龄以下）的儿童。我们不会故意收集儿童的个人信息。</p>
+
+      <h2>隐私政策的变更</h2>
+      <p>我们可能会不时更新本隐私政策。任何变更将通过更新页面顶部的"最后更新"日期来反映。变更发布后您继续使用本扩展程序即表示您接受更新后的隐私政策。</p>
+
+      <h2>联系方式</h2>
+      <p>如果您对本隐私政策或您的数据有疑问，请通过以下方式联系我们：<br><strong>电子邮件：</strong> <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
+    </div>
+
+    <!-- KOREAN -->
+    <div data-lang="ko">
+      <h1>개인정보 처리방침</h1>
+      <p class="updated">최종 업데이트: 2026년 3월 20일</p>
+
+      <h2>개요</h2>
+      <p>Live Sidebar는 팔로우 중인 Twitch 채널과 구독 중인 YouTube 채널의 라이브 방송 상태를 통합 사이드바에 표시하는 Chrome 브라우저 확장 프로그램입니다. 본 개인정보 처리방침은 Live Sidebar(이하 "당사" 또는 "본 확장 프로그램")가 사용자의 정보를 수집, 사용, 저장 및 공유하는 방법을 설명합니다.</p>
+
+      <h2>수집하는 정보</h2>
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">인증 데이터</h3>
+      <p>Twitch 또는 YouTube 계정을 연결하면 본 확장 프로그램은 사용자를 대신하여 계정 데이터에 액세스할 수 있는 OAuth 토큰(액세스 토큰 및 리프레시 토큰)을 수신합니다. 당사는 사용자의 Twitch 또는 YouTube 비밀번호를 수집하거나 액세스하지 <strong>않습니다</strong>.</p>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">Twitch API를 통해 액세스하는 데이터</h3>
+      <ul>
+        <li>Twitch 사용자 ID 및 표시 이름</li>
+        <li>팔로우 중인 채널 목록</li>
+        <li>팔로우 중인 채널의 라이브 방송 상태 (방송 제목, 게임 이름, 시청자 수, 썸네일)</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">YouTube API를 통해 액세스하는 데이터</h3>
+      <ul>
+        <li>YouTube 채널 ID 및 채널 이름</li>
+        <li>구독 채널 목록</li>
+        <li>구독 채널의 라이브 방송 상태 (방송 제목, 시청자 수, 썸네일)</li>
+      </ul>
+
+      <h3 style="font-size:1rem;margin:16px 0 8px;color:#efeff1;">수집하지 않는 데이터</h3>
+      <ul>
+        <li>브라우징 기록이나 웹 활동을 수집하지 <strong>않습니다</strong></li>
+        <li>이름, 이메일 주소, 실제 주소 등 개인 정보를 수집하지 <strong>않습니다</strong></li>
+        <li>결제 정보를 수집하지 <strong>않습니다</strong> (결제가 있는 경우 전적으로 제3자 결제 제공업체가 처리합니다)</li>
+        <li>분석 또는 사용 추적 데이터를 수집하지 <strong>않습니다</strong></li>
+      </ul>
+
+      <h2>데이터 사용 방법</h2>
+      <p>Live Sidebar가 액세스하는 모든 데이터는 본 확장 프로그램의 핵심 기능을 제공하기 위해<strong>서만</strong> 사용됩니다:</p>
+      <ul>
+        <li>사이드바에 팔로우/구독 채널과 라이브 상태 표시</li>
+        <li>Twitch 및 YouTube와의 인증 세션 유지</li>
+        <li>라이브 방송 이벤트에 대한 데스크톱 알림 전송 (사용자가 활성화한 경우)</li>
+      </ul>
+      <p>당사는 광고, 마케팅, 분석 또는 본 확장 프로그램의 기능과 관련 없는 목적으로 데이터를 사용하지 <strong>않습니다</strong>.</p>
+
+      <h2>데이터 저장</h2>
+      <ul>
+        <li>모든 데이터(OAuth 토큰, 채널 목록, 캐시된 방송 데이터)는 Chrome의 <code>chrome.storage.local</code> API를 사용하여 <strong>사용자의 기기에 로컬 저장</strong>됩니다</li>
+        <li><strong>당사가 운영하는 외부 서버로 데이터가 전송되거나 저장되지 않습니다</strong></li>
+        <li>Twitch 토큰 교환 및 갱신 작업은 인증만 처리하고 사용자 데이터를 저장하지 않는 보안 프록시 서버를 통해 처리됩니다</li>
+        <li>캐시된 채널 데이터는 정기적으로 자동 갱신되어 최신 데이터로 대체됩니다</li>
+      </ul>
+
+      <h2>데이터 공유</h2>
+      <p>당사는 사용자의 데이터를 제3자에게 판매, 거래, 라이선스 부여 또는 공유하지 <strong>않습니다</strong>.</p>
+      <p>데이터는 다음으로만 전송됩니다:</p>
+      <ul>
+        <li><strong>Twitch API</strong> (api.twitch.tv) — 팔로우 채널 및 라이브 상태 조회</li>
+        <li><strong>YouTube Data API</strong> (googleapis.com) — 구독 채널 및 라이브 상태 조회</li>
+        <li><strong>YouTube RSS 피드</strong> (youtube.com/feeds) — 최신 동영상 확인 (인증 불필요, 사용자 데이터 전송 없음)</li>
+      </ul>
+
+      <h2>데이터 보존 및 삭제</h2>
+      <ul>
+        <li>모든 데이터는 사용자의 기기에 로컬 저장되며 당사의 서버에 보존되지 않습니다</li>
+        <li>다음 방법으로 언제든지 모든 저장된 데이터를 삭제할 수 있습니다:
+          <ul>
+            <li>확장 프로그램 내 각 플랫폼의 "연결 해제" 버튼 클릭</li>
+            <li>확장 프로그램 제거 (모든 로컬 저장 데이터가 삭제됩니다)</li>
+          </ul>
+        </li>
+        <li>계정 연결을 해제하면 해당 플랫폼과 관련된 모든 토큰 및 캐시 데이터가 로컬 저장소에서 즉시 삭제됩니다</li>
+      </ul>
+
+      <h2>Google API 서비스 — 제한적 사용 공개</h2>
+      <p>Live Sidebar의 Google API에서 수신한 정보의 사용 및 다른 앱으로의 전송은 제한적 사용 요구 사항을 포함한 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>을 준수합니다.</p>
+      <ul>
+        <li>YouTube API 데이터는 구독 채널 및 라이브 방송 상태 표시에만 사용합니다</li>
+        <li>YouTube API 데이터를 제3자에게 전송하지 않습니다</li>
+        <li>YouTube API 데이터를 광고 또는 관련 없는 목적으로 사용하지 않습니다</li>
+        <li>확장 프로그램의 기능을 제공하기 위해 필요한 경우를 제외하고는 사람이 YouTube API 데이터를 열람하는 것을 허용하지 않습니다</li>
+      </ul>
+
+      <h2>YouTube API 서비스</h2>
+      <p>Live Sidebar는 YouTube API 서비스를 사용합니다. Live Sidebar를 사용함으로써 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>에도 동의하는 것으로 간주됩니다.</p>
+      <p><a href="https://myaccount.google.com/permissions">Google 계정 권한 페이지</a>에서 언제든지 Live Sidebar의 YouTube 데이터 액세스를 취소할 수 있습니다.</p>
+
+      <h2>Twitch API 서비스</h2>
+      <p>Live Sidebar는 Twitch API 서비스를 사용합니다. Live Sidebar를 사용함으로써 <a href="https://www.twitch.tv/p/legal/terms-of-service/">Twitch 서비스 약관</a> 및 <a href="https://www.twitch.tv/p/legal/developer-agreement/">Twitch 개발자 서비스 계약</a>에도 동의하는 것으로 간주됩니다.</p>
+      <p><a href="https://www.twitch.tv/settings/connections">Twitch 연결 설정</a>에서 언제든지 Live Sidebar의 Twitch 데이터 액세스를 취소할 수 있습니다.</p>
+
+      <h2>아동의 개인정보</h2>
+      <p>Live Sidebar는 13세 미만(또는 해당 관할권의 적용 연령 미만)의 아동을 대상으로 하지 않습니다. 당사는 아동의 개인 정보를 고의로 수집하지 않습니다.</p>
+
+      <h2>개인정보 처리방침의 변경</h2>
+      <p>당사는 본 개인정보 처리방침을 수시로 업데이트할 수 있습니다. 변경 사항은 페이지 상단의 "최종 업데이트" 날짜를 업데이트하여 반영됩니다. 변경 사항이 게시된 후에도 본 확장 프로그램을 계속 사용하면 업데이트된 개인정보 처리방침에 동의하는 것으로 간주됩니다.</p>
+
+      <h2>문의</h2>
+      <p>본 개인정보 처리방침 또는 사용자의 데이터에 대한 질문이 있는 경우 아래로 문의해 주세요:<br><strong>이메일:</strong> <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Live Sidebar. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) { el.classList.remove('active'); el.style.display = 'none'; });
+      document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) { el.classList.add('active'); el.style.display = ''; });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
+      document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      localStorage.setItem('lang', lang);
+    }
+    (function() {
+      var saved = localStorage.getItem('lang');
+      if (saved && ['en','ja','zh','ko'].indexOf(saved) !== -1) setLang(saved);
+    })();
+  </script>
+</body>
+</html>
