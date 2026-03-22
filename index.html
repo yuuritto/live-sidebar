@@ -91,9 +91,8 @@
 
     [data-lang] { display: none; }
     [data-lang].active { display: block; }
-    header [data-lang].active { display: block; }
-    .feature-grid [data-lang].active, .pricing-grid [data-lang].active { display: grid; }
-    .platform-badges [data-lang].active { display: flex; }
+    a[data-lang].active { display: inline; }
+    .feature-grid[data-lang].active, .pricing-grid[data-lang].active { display: grid; }
 
     @media (max-width: 600px) {
       header h1 { font-size: 1.8rem; }
@@ -124,7 +123,7 @@
       <h2 data-lang="zh">功能</h2>
       <h2 data-lang="ko">기능</h2>
 
-      <div class="feature-grid" data-lang="en" class="active">
+      <div class="feature-grid active" data-lang="en">
         <div class="feature-card">
           <h3>Unified Live Feed</h3>
           <p>View all your followed Twitch channels and YouTube subscriptions in one sidebar. See who's live at a glance.</p>
@@ -218,7 +217,7 @@
       <h2 data-lang="zh">方案</h2>
       <h2 data-lang="ko">요금제</h2>
 
-      <div class="pricing-grid" data-lang="en" class="active">
+      <div class="pricing-grid active" data-lang="en">
         <div class="pricing-card">
           <h3>Free</h3>
           <div class="price">$0</div>
@@ -316,7 +315,7 @@
     </section>
 
     <footer>
-      <p><a href="privacy-policy" data-lang="en" class="active">Privacy Policy</a><a href="privacy-policy" data-lang="ja">プライバシーポリシー</a><a href="privacy-policy" data-lang="zh">隐私政策</a><a href="privacy-policy" data-lang="ko">개인정보 처리방침</a></p>
+      <p><a href="privacy-policy.html" data-lang="en" class="active">Privacy Policy</a><a href="privacy-policy.html" data-lang="ja">プライバシーポリシー</a><a href="privacy-policy.html" data-lang="zh">隐私政策</a><a href="privacy-policy.html" data-lang="ko">개인정보 처리방침</a></p>
       <p data-lang="en" class="active">Contact: <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
       <p data-lang="ja">お問い合わせ: <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
       <p data-lang="zh">联系方式: <a href="mailto:entet.info@gmail.com">entet.info@gmail.com</a></p>
