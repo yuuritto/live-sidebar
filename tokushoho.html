@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 — Live Sidebar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e10;
+      color: #efeff1;
+      line-height: 1.8;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .lang-switcher { display: flex; justify-content: flex-end; gap: 4px; padding: 16px 0 0; }
+    .lang-btn {
+      background: transparent; border: 1px solid #2f2f35; color: #adadb8;
+      padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+    }
+    .lang-btn:hover { border-color: #bf94ff; color: #efeff1; }
+    .lang-btn.active { background: #bf94ff; color: #0e0e10; border-color: #bf94ff; }
+    .back { display: inline-block; padding: 16px 0; color: #bf94ff; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 32px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    th, td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid #2f2f35;
+      font-size: 0.95rem;
+      vertical-align: top;
+    }
+    th {
+      width: 200px;
+      color: #bf94ff;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    td { color: #d3d3d8; }
+    td a { color: #bf94ff; text-decoration: none; }
+    td a:hover { text-decoration: underline; }
+    footer { padding: 40px 0; text-align: center; color: #adadb8; font-size: 0.85rem; border-top: 1px solid #2f2f35; margin-top: 40px; }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    table[data-lang].active { display: table; }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      th { width: 120px; font-size: 0.85rem; }
+      td { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+      <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    </div>
+
+    <a href="index.html" class="back" data-lang="en">&larr; Back to Home</a>
+    <a href="index.html" class="back active" data-lang="ja">&larr; トップに戻る</a>
+    <a href="index.html" class="back" data-lang="zh">&larr; 返回首页</a>
+    <a href="index.html" class="back" data-lang="ko">&larr; 홈으로 돌아가기</a>
+
+    <h1 data-lang="en">Specified Commercial Transactions Act Disclosure</h1>
+    <h1 data-lang="ja" class="active">特定商取引法に基づく表記</h1>
+    <h1 data-lang="zh">特定商业交易法标识</h1>
+    <h1 data-lang="ko">특정상거래법에 의한 표기</h1>
+
+    <!-- Japanese -->
+    <table data-lang="ja" class="active">
+      <tr><th>販売事業者</th><td>ＥＮＴＥＴ株式会社</td></tr>
+      <tr><th>代表者</th><td>高森 祐冶</td></tr>
+      <tr><th>所在地</th><td>〒230-0001 神奈川県横浜市鶴見区矢向5-8-29</td></tr>
+      <tr><th>電話番号</th><td>050-7109-2191</td></tr>
+      <tr><th>お問い合わせ</th><td><a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">お問い合わせフォーム</a></td></tr>
+      <tr><th>販売商品</th><td>Live Sidebar Pro（Chrome拡張機能のサブスクリプション）</td></tr>
+      <tr><th>販売価格</th><td>月額プラン: $2.99（税込） / 年額プラン: $24.99（税込）</td></tr>
+      <tr><th>商品代金以外の必要料金</th><td>なし</td></tr>
+      <tr><th>支払方法</th><td>クレジットカード（Stripe経由）</td></tr>
+      <tr><th>支払時期</th><td>購入手続き完了時に即時決済。以降、契約期間に応じて自動更新。</td></tr>
+      <tr><th>商品の引渡し時期</th><td>決済完了後、即時ご利用いただけます。</td></tr>
+      <tr><th>返品・キャンセル</th><td>デジタル商品の性質上、購入後の返品・返金はお受けしておりません。サブスクリプションはいつでも解約でき、解約後は次回更新日まで引き続きご利用いただけます。</td></tr>
+      <tr><th>動作環境</th><td>Google Chrome バージョン116以上</td></tr>
+    </table>
+
+    <!-- English -->
+    <table data-lang="en">
+      <tr><th>Seller</th><td>ENTET Inc.</td></tr>
+      <tr><th>Representative</th><td>Yuya Takamori</td></tr>
+      <tr><th>Address</th><td>5-8-29 Yako, Tsurumi-ku, Yokohama-shi, Kanagawa, Japan 230-0001</td></tr>
+      <tr><th>Phone</th><td>+81-50-7109-2191</td></tr>
+      <tr><th>Contact</th><td><a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">Contact Form</a></td></tr>
+      <tr><th>Product</th><td>Live Sidebar Pro (Chrome extension subscription)</td></tr>
+      <tr><th>Price</th><td>Monthly: $2.99 (tax included) / Yearly: $24.99 (tax included)</td></tr>
+      <tr><th>Additional Fees</th><td>None</td></tr>
+      <tr><th>Payment Method</th><td>Credit card (via Stripe)</td></tr>
+      <tr><th>Payment Timing</th><td>Charged immediately upon purchase. Automatically renewed based on the subscription period.</td></tr>
+      <tr><th>Delivery</th><td>Available immediately after payment is completed.</td></tr>
+      <tr><th>Refund / Cancellation</th><td>Due to the nature of digital products, refunds are not available after purchase. You may cancel your subscription at any time, and you will retain access until the end of the current billing period.</td></tr>
+      <tr><th>System Requirements</th><td>Google Chrome version 116 or later</td></tr>
+    </table>
+
+    <!-- Chinese -->
+    <table data-lang="zh">
+      <tr><th>销售商</th><td>ENTET株式会社</td></tr>
+      <tr><th>代表人</th><td>高森 祐冶（Yuya Takamori）</td></tr>
+      <tr><th>地址</th><td>日本国神奈川县横滨市鹤见区矢向5-8-29 邮编230-0001</td></tr>
+      <tr><th>电话</th><td>+81-50-7109-2191</td></tr>
+      <tr><th>联系方式</th><td><a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">联系表单</a></td></tr>
+      <tr><th>商品</th><td>Live Sidebar Pro（Chrome扩展订阅服务）</td></tr>
+      <tr><th>价格</th><td>月付: $2.99（含税）/ 年付: $24.99（含税）</td></tr>
+      <tr><th>额外费用</th><td>无</td></tr>
+      <tr><th>支付方式</th><td>信用卡（通过Stripe）</td></tr>
+      <tr><th>支付时间</th><td>购买时立即扣款，之后根据订阅周期自动续费。</td></tr>
+      <tr><th>交付时间</th><td>付款完成后立即可用。</td></tr>
+      <tr><th>退款与取消</th><td>由于数字产品的特性，购买后不接受退款。您可以随时取消订阅，取消后可继续使用至当前计费周期结束。</td></tr>
+      <tr><th>运行环境</th><td>Google Chrome 116或更高版本</td></tr>
+    </table>
+
+    <!-- Korean -->
+    <table data-lang="ko">
+      <tr><th>판매사업자</th><td>ENTET 주식회사</td></tr>
+      <tr><th>대표자</th><td>다카모리 유야（高森 祐冶）</td></tr>
+      <tr><th>소재지</th><td>일본 가나가와현 요코하마시 쓰루미구 야코 5-8-29 (〒230-0001)</td></tr>
+      <tr><th>전화번호</th><td>+81-50-7109-2191</td></tr>
+      <tr><th>문의</th><td><a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">문의 양식</a></td></tr>
+      <tr><th>상품</th><td>Live Sidebar Pro (Chrome 확장 프로그램 구독)</td></tr>
+      <tr><th>판매가격</th><td>월간: $2.99 (세금 포함) / 연간: $24.99 (세금 포함)</td></tr>
+      <tr><th>추가 비용</th><td>없음</td></tr>
+      <tr><th>결제 방법</th><td>신용카드 (Stripe 경유)</td></tr>
+      <tr><th>결제 시기</th><td>구매 시 즉시 결제. 이후 구독 기간에 따라 자동 갱신.</td></tr>
+      <tr><th>상품 제공 시기</th><td>결제 완료 후 즉시 이용 가능.</td></tr>
+      <tr><th>환불 및 해지</th><td>디지털 상품의 특성상 구매 후 환불은 불가합니다. 구독은 언제든 해지할 수 있으며, 해지 후에도 현재 결제 기간 종료까지 계속 이용하실 수 있습니다.</td></tr>
+      <tr><th>동작 환경</th><td>Google Chrome 버전 116 이상</td></tr>
+    </table>
+
+    <footer>
+      <p>&copy; 2026 Live Sidebar. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) { el.classList.remove('active'); el.style.display = 'none'; });
+      document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) { el.classList.add('active'); el.style.display = ''; });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
+      document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      localStorage.setItem('lang', lang);
+    }
+    (function() {
+      var saved = localStorage.getItem('lang');
+      if (saved && ['en','ja','zh','ko'].indexOf(saved) !== -1) setLang(saved);
+    })();
+  </script>
+</body>
+</html>
