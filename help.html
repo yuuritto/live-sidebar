@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help — Live Sidebar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e10;
+      color: #efeff1;
+      line-height: 1.8;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .lang-switcher { display: flex; justify-content: flex-end; gap: 4px; padding: 16px 0 0; }
+    .lang-btn {
+      background: transparent; border: 1px solid #2f2f35; color: #adadb8;
+      padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+    }
+    .lang-btn:hover { border-color: #bf94ff; color: #efeff1; }
+    .lang-btn.active { background: #bf94ff; color: #0e0e10; border-color: #bf94ff; }
+    .back { display: inline-block; padding: 16px 0; color: #bf94ff; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; }
+    h2 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 12px; color: #bf94ff; }
+    h3 { font-size: 1rem; font-weight: 600; margin: 20px 0 8px; color: #efeff1; }
+    p, li { font-size: 0.95rem; color: #d3d3d8; margin-bottom: 12px; }
+    ul, ol { padding-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a { color: #bf94ff; }
+    strong { color: #efeff1; }
+    .steps { background: #18181b; border: 1px solid #2f2f35; border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
+    .steps ol { margin-bottom: 0; }
+    .steps li:last-child { margin-bottom: 0; }
+    .faq-item { background: #18181b; border: 1px solid #2f2f35; border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
+    .faq-q { font-weight: 600; color: #efeff1; margin-bottom: 8px; }
+    .faq-a { color: #d3d3d8; margin-bottom: 0; }
+    .pro-badge { background: #bf94ff; color: #0e0e10; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; vertical-align: middle; }
+    footer { padding: 40px 0; text-align: center; color: #adadb8; font-size: 0.85rem; border-top: 1px solid #2f2f35; margin-top: 40px; }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ja')">JA</button>
+      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+      <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    </div>
+    <a href="./" class="back" data-lang="en" style="display:inline-block">&larr; Back</a>
+    <a href="./" class="back" data-lang="ja">&larr; トップに戻る</a>
+    <a href="./" class="back" data-lang="zh">&larr; 返回首页</a>
+    <a href="./" class="back" data-lang="ko">&larr; 돌아가기</a>
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div data-lang="en" class="active">
+      <h1>Help</h1>
+
+      <h2>Getting Started</h2>
+      <h3>Connecting Twitch</h3>
+      <div class="steps">
+        <ol>
+          <li>Open the sidebar by clicking the Live Sidebar icon in the toolbar</li>
+          <li>Click <strong>"Connect to Twitch"</strong></li>
+          <li>Log in with your Twitch account and authorize access</li>
+          <li>Your followed channels will appear automatically</li>
+        </ol>
+      </div>
+
+      <h3>Connecting YouTube</h3>
+      <div class="steps">
+        <ol>
+          <li>Click <strong>"Connect to YouTube"</strong> in the sidebar</li>
+          <li>Select your Google account from the account picker</li>
+          <li>Review and approve the permissions</li>
+          <li>Your subscribed channels will appear automatically</li>
+        </ol>
+      </div>
+      <p>If you see an "unverified app" warning, click <strong>Advanced</strong> &rarr; <strong>Go to Live Sidebar</strong> to proceed.</p>
+
+      <h2>Features</h2>
+      <h3>Pinning Channels</h3>
+      <p>Hover over any channel and click the star icon to pin it. Pinned channels always appear at the top of the list. Free users can pin up to 3 channels.</p>
+
+      <h3>Multiple Accounts <span class="pro-badge">Pro</span></h3>
+      <p>Pro users can connect multiple Twitch and YouTube accounts. All accounts are polled simultaneously and results are merged into a single list. Duplicate channels are automatically removed.</p>
+      <div class="steps">
+        <ol>
+          <li>Connect your first account as usual</li>
+          <li>Click <strong>"+ Add Account"</strong> to connect additional accounts</li>
+          <li>To remove an account, click the &times; button next to the account name</li>
+        </ol>
+      </div>
+
+      <h3>Live Notifications <span class="pro-badge">Pro</span></h3>
+      <p>Get notified when channels go live. Open Settings (gear icon) and enable <strong>Live start notification</strong>. You can also choose to only receive notifications for pinned channels.</p>
+
+      <h3>Custom Filters <span class="pro-badge">Pro</span></h3>
+      <p>Filter channels by game name, category, or stream title. Open Settings and type a keyword in the filter field, then press Enter. Multiple filters can be added.</p>
+
+      <h3>Themes <span class="pro-badge">Pro</span></h3>
+      <p>Choose from Dark, Light, or Midnight themes, and pick an accent color. Open Settings to customize.</p>
+
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <p class="faq-q">How do I move the sidebar to the other side?</p>
+        <p class="faq-a">Click the sidebar switch button (double panel icon) in the header. This opens Chrome's appearance settings where you can change the side panel position.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How often is the channel list updated?</p>
+        <p class="faq-a">Twitch channels are checked every 2 minutes. YouTube channels are checked every 5 minutes. You can also click the refresh button for an immediate update.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Why don't I see any channels after connecting?</p>
+        <p class="faq-a">Make sure you follow channels on Twitch or have subscriptions on YouTube. The initial data load may take a few seconds. Try clicking the refresh button.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How do I cancel my Pro subscription?</p>
+        <p class="faq-a">Open Settings &rarr; scroll to <strong>Subscription</strong> &rarr; click <strong>"Manage subscription / Cancel"</strong>.</p>
+      </div>
+
+      <h2>Troubleshooting</h2>
+      <div class="faq-item">
+        <p class="faq-q">Twitch says "reconnection required"</p>
+        <p class="faq-a">Your Twitch token has expired. Disconnect and reconnect your Twitch account.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">YouTube connection is stuck at "Connecting..."</p>
+        <p class="faq-a">The Google authentication popup may be waiting for your input. Check if there's a popup window behind your browser. If the issue persists, close and reopen the sidebar, then try again.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Nothing works / data seems corrupted</p>
+        <p class="faq-a">Open Settings &rarr; scroll to <strong>Data &amp; Privacy</strong> &rarr; click <strong>"Clear all data and reset"</strong>. You will need to reconnect your accounts.</p>
+      </div>
+
+      <p style="margin-top: 24px;">Still need help? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">Contact us</a></p>
+    </div>
+
+    <!-- ==================== JAPANESE ==================== -->
+    <div data-lang="ja">
+      <h1>ヘルプ</h1>
+
+      <h2>はじめに</h2>
+      <h3>Twitchを接続する</h3>
+      <div class="steps">
+        <ol>
+          <li>ツールバーのLive Sidebarアイコンをクリックしてサイドバーを開く</li>
+          <li><strong>「Twitchに接続」</strong>をクリック</li>
+          <li>Twitchアカウントでログインし、アクセスを許可</li>
+          <li>フォロー中のチャンネルが自動的に表示されます</li>
+        </ol>
+      </div>
+
+      <h3>YouTubeを接続する</h3>
+      <div class="steps">
+        <ol>
+          <li>サイドバーで<strong>「YouTubeに接続」</strong>をクリック</li>
+          <li>アカウント選択画面でGoogleアカウントを選択</li>
+          <li>権限を確認して許可</li>
+          <li>登録チャンネルが自動的に表示されます</li>
+        </ol>
+      </div>
+      <p>「このアプリは確認されていません」という警告が表示された場合は、<strong>詳細</strong> → <strong>Live Sidebar に移動</strong>をクリックしてください。</p>
+
+      <h2>機能</h2>
+      <h3>チャンネルのピン留め</h3>
+      <p>チャンネルにカーソルを合わせると星アイコンが表示されます。クリックするとピン留めされ、リストの上部に固定されます。無料版では最大3件までピン留めできます。</p>
+
+      <h3>複数アカウント <span class="pro-badge">Pro</span></h3>
+      <p>Pro版では、TwitchとYouTubeのアカウントを複数接続できます。全アカウントが同時にチェックされ、結果が1つのリストに統合表示されます。同じチャンネルが重複することはありません。</p>
+      <div class="steps">
+        <ol>
+          <li>最初のアカウントを通常通り接続</li>
+          <li><strong>「+ アカウント追加」</strong>をクリックして追加のアカウントを接続</li>
+          <li>アカウントを削除するには、アカウント名の横にある &times; ボタンをクリック</li>
+        </ol>
+      </div>
+
+      <h3>ライブ開始通知 <span class="pro-badge">Pro</span></h3>
+      <p>チャンネルがライブを開始すると通知を受け取れます。設定（歯車アイコン）を開き、<strong>「ライブ開始通知」</strong>を有効にしてください。ピン留めしたチャンネルのみ通知することもできます。</p>
+
+      <h3>カスタムフィルター <span class="pro-badge">Pro</span></h3>
+      <p>ゲーム名、カテゴリ、配信タイトルでチャンネルを絞り込めます。設定を開き、フィルター欄にキーワードを入力してEnterキーを押してください。</p>
+
+      <h3>テーマ <span class="pro-badge">Pro</span></h3>
+      <p>ダーク、ライト、ミッドナイトの3つのテーマと5色のアクセントカラーから選べます。設定から変更してください。</p>
+
+      <h2>よくある質問</h2>
+      <div class="faq-item">
+        <p class="faq-q">サイドバーを反対側に移動するには？</p>
+        <p class="faq-a">ヘッダーのサイドバー切替ボタン（パネルアイコン）をクリックすると、Chromeの外観設定が開きます。そこでサイドパネルの位置を変更できます。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">チャンネルリストはどのくらいの頻度で更新される？</p>
+        <p class="faq-a">Twitchは2分ごと、YouTubeは5分ごとにチェックされます。更新ボタンをクリックすると即座に更新できます。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">接続したのにチャンネルが表示されない</p>
+        <p class="faq-a">Twitchでチャンネルをフォローしているか、YouTubeでチャンネルを登録しているか確認してください。初回のデータ読み込みには数秒かかることがあります。更新ボタンをクリックしてみてください。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Proの解約方法は？</p>
+        <p class="faq-a">設定を開く → <strong>「サブスクリプション」</strong>セクション → <strong>「サブスクリプション管理・解約」</strong>をクリックしてください。</p>
+      </div>
+
+      <h2>トラブルシューティング</h2>
+      <div class="faq-item">
+        <p class="faq-q">Twitchで「再接続が必要です」と表示される</p>
+        <p class="faq-a">Twitchのトークンが期限切れになっています。アカウントを一度切断してから再接続してください。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">YouTubeが「接続中...」のまま止まる</p>
+        <p class="faq-a">Googleの認証ポップアップが入力待ちの状態かもしれません。ブラウザの後ろにポップアップウィンドウがないか確認してください。問題が続く場合は、サイドバーを閉じて開き直してから再度お試しください。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">何も動かない / データがおかしい</p>
+        <p class="faq-a">設定を開く → <strong>「データ・プライバシー」</strong> → <strong>「全データを消去してリセット」</strong>をクリックしてください。アカウントの再接続が必要になります。</p>
+      </div>
+
+      <p style="margin-top: 24px;">解決しない場合は<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">お問い合わせ</a>ください。</p>
+    </div>
+
+    <!-- ==================== CHINESE ==================== -->
+    <div data-lang="zh">
+      <h1>帮助</h1>
+
+      <h2>开始使用</h2>
+      <h3>连接Twitch</h3>
+      <div class="steps">
+        <ol>
+          <li>点击工具栏中的 Live Sidebar 图标打开侧边栏</li>
+          <li>点击<strong>"连接Twitch"</strong></li>
+          <li>使用Twitch账号登录并授权</li>
+          <li>关注的频道将自动显示</li>
+        </ol>
+      </div>
+
+      <h3>连接YouTube</h3>
+      <div class="steps">
+        <ol>
+          <li>在侧边栏中点击<strong>"连接YouTube"</strong></li>
+          <li>在账号选择界面选择Google账号</li>
+          <li>查看并同意权限请求</li>
+          <li>订阅的频道将自动显示</li>
+        </ol>
+      </div>
+      <p>如果出现"此应用未经验证"的警告，请点击<strong>高级</strong> &rarr; <strong>转到 Live Sidebar</strong>继续。</p>
+
+      <h2>功能</h2>
+      <h3>置顶频道</h3>
+      <p>将鼠标悬停在频道上，点击星标图标即可置顶。置顶的频道始终显示在列表顶部。免费版最多可置顶3个频道。</p>
+
+      <h3>多账号 <span class="pro-badge">Pro</span></h3>
+      <p>Pro用户可以连接多个Twitch和YouTube账号。所有账号同时更新，结果合并为一个列表。重复的频道会自动去除。</p>
+      <div class="steps">
+        <ol>
+          <li>正常连接第一个账号</li>
+          <li>点击<strong>"+ 添加账号"</strong>连接更多账号</li>
+          <li>要移除账号，点击账号名称旁的 &times; 按钮</li>
+        </ol>
+      </div>
+
+      <h3>开播通知 <span class="pro-badge">Pro</span></h3>
+      <p>当频道开始直播时收到通知。打开设置（齿轮图标），启用<strong>"开播通知"</strong>。也可以选择仅通知置顶频道。</p>
+
+      <h3>自定义筛选 <span class="pro-badge">Pro</span></h3>
+      <p>按游戏名、分类或直播标题筛选频道。打开设置，在筛选栏输入关键词后按回车。</p>
+
+      <h3>主题 <span class="pro-badge">Pro</span></h3>
+      <p>可选深色、浅色、午夜三种主题和5种强调色。在设置中更改。</p>
+
+      <h2>常见问题</h2>
+      <div class="faq-item">
+        <p class="faq-q">如何将侧边栏移到另一侧？</p>
+        <p class="faq-a">点击顶部的侧边栏切换按钮（双面板图标），将打开Chrome外观设置，在那里可以更改侧边面板的位置。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">频道列表多久更新一次？</p>
+        <p class="faq-a">Twitch每2分钟检查一次，YouTube每5分钟检查一次。也可以点击刷新按钮立即更新。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">连接后看不到频道？</p>
+        <p class="faq-a">请确认您在Twitch上关注了频道，或在YouTube上有订阅。首次加载可能需要几秒钟，请尝试点击刷新按钮。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">如何取消Pro订阅？</p>
+        <p class="faq-a">打开设置 &rarr; <strong>"订阅"</strong>部分 &rarr; 点击<strong>"管理订阅 / 取消"</strong>。</p>
+      </div>
+
+      <h2>故障排除</h2>
+      <div class="faq-item">
+        <p class="faq-q">Twitch显示"需要重新连接"</p>
+        <p class="faq-a">Twitch令牌已过期。请断开并重新连接Twitch账号。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">YouTube卡在"连接中..."</p>
+        <p class="faq-a">Google认证弹窗可能在等待操作。请检查浏览器后面是否有弹窗。如果问题持续，关闭并重新打开侧边栏后再试。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">完全无法使用 / 数据异常</p>
+        <p class="faq-a">打开设置 &rarr; <strong>"数据与隐私"</strong> &rarr; 点击<strong>"清除所有数据并重置"</strong>。之后需要重新连接账号。</p>
+      </div>
+
+      <p style="margin-top: 24px;">仍需帮助？<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">联系我们</a></p>
+    </div>
+
+    <!-- ==================== KOREAN ==================== -->
+    <div data-lang="ko">
+      <h1>도움말</h1>
+
+      <h2>시작하기</h2>
+      <h3>Twitch 연결</h3>
+      <div class="steps">
+        <ol>
+          <li>툴바의 Live Sidebar 아이콘을 클릭하여 사이드바 열기</li>
+          <li><strong>"Twitch 연결"</strong> 클릭</li>
+          <li>Twitch 계정으로 로그인하고 접근 권한 허용</li>
+          <li>팔로우 중인 채널이 자동으로 표시됩니다</li>
+        </ol>
+      </div>
+
+      <h3>YouTube 연결</h3>
+      <div class="steps">
+        <ol>
+          <li>사이드바에서 <strong>"YouTube 연결"</strong> 클릭</li>
+          <li>계정 선택 화면에서 Google 계정 선택</li>
+          <li>권한을 확인하고 승인</li>
+          <li>구독 채널이 자동으로 표시됩니다</li>
+        </ol>
+      </div>
+      <p>"이 앱은 확인되지 않았습니다"라는 경고가 표시되면 <strong>고급</strong> &rarr; <strong>Live Sidebar로 이동</strong>을 클릭하세요.</p>
+
+      <h2>기능</h2>
+      <h3>채널 고정</h3>
+      <p>채널에 마우스를 올리면 별 아이콘이 나타납니다. 클릭하면 고정되어 목록 상단에 표시됩니다. 무료 버전에서는 최대 3개까지 고정할 수 있습니다.</p>
+
+      <h3>다중 계정 <span class="pro-badge">Pro</span></h3>
+      <p>Pro 사용자는 여러 Twitch 및 YouTube 계정을 연결할 수 있습니다. 모든 계정이 동시에 확인되며 결과가 하나의 목록으로 통합됩니다. 중복 채널은 자동으로 제거됩니다.</p>
+      <div class="steps">
+        <ol>
+          <li>첫 번째 계정을 정상적으로 연결</li>
+          <li><strong>"+ 계정 추가"</strong>를 클릭하여 추가 계정 연결</li>
+          <li>계정을 삭제하려면 계정 이름 옆의 &times; 버튼 클릭</li>
+        </ol>
+      </div>
+
+      <h3>방송 시작 알림 <span class="pro-badge">Pro</span></h3>
+      <p>채널이 방송을 시작하면 알림을 받을 수 있습니다. 설정(톱니바퀴 아이콘)을 열고 <strong>"방송 시작 알림"</strong>을 활성화하세요. 고정된 채널만 알림 받을 수도 있습니다.</p>
+
+      <h3>맞춤 필터 <span class="pro-badge">Pro</span></h3>
+      <p>게임명, 카테고리, 방송 제목으로 채널을 필터링할 수 있습니다. 설정을 열고 필터 입력란에 키워드를 입력한 후 Enter를 누르세요.</p>
+
+      <h3>테마 <span class="pro-badge">Pro</span></h3>
+      <p>다크, 라이트, 미드나이트 3가지 테마와 5가지 강조색을 선택할 수 있습니다. 설정에서 변경하세요.</p>
+
+      <h2>자주 묻는 질문</h2>
+      <div class="faq-item">
+        <p class="faq-q">사이드바를 반대쪽으로 옮기려면?</p>
+        <p class="faq-a">헤더의 사이드바 전환 버튼(이중 패널 아이콘)을 클릭하면 Chrome 외관 설정이 열립니다. 거기서 사이드 패널 위치를 변경할 수 있습니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">채널 목록은 얼마나 자주 업데이트되나요?</p>
+        <p class="faq-a">Twitch는 2분마다, YouTube는 5분마다 확인됩니다. 새로고침 버튼을 클릭하면 즉시 업데이트할 수 있습니다.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">연결했는데 채널이 안 보여요</p>
+        <p class="faq-a">Twitch에서 채널을 팔로우하고 있는지, YouTube에서 구독이 있는지 확인하세요. 첫 로딩에 몇 초가 걸릴 수 있습니다. 새로고침 버튼을 눌러보세요.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Pro 구독을 해지하려면?</p>
+        <p class="faq-a">설정 열기 &rarr; <strong>"구독"</strong> 섹션 &rarr; <strong>"구독 관리 / 해지"</strong> 클릭.</p>
+      </div>
+
+      <h2>문제 해결</h2>
+      <div class="faq-item">
+        <p class="faq-q">Twitch에서 "재연결이 필요합니다"라고 표시됨</p>
+        <p class="faq-a">Twitch 토큰이 만료되었습니다. 계정을 연결 해제한 후 다시 연결하세요.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">YouTube가 "연결 중..."에서 멈춤</p>
+        <p class="faq-a">Google 인증 팝업이 입력을 기다리고 있을 수 있습니다. 브라우저 뒤에 팝업 창이 없는지 확인하세요. 문제가 계속되면 사이드바를 닫았다가 다시 열고 재시도하세요.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">아무것도 작동하지 않음 / 데이터 오류</p>
+        <p class="faq-a">설정 열기 &rarr; <strong>"데이터 및 개인정보"</strong> &rarr; <strong>"모든 데이터 삭제 및 초기화"</strong> 클릭. 이후 계정을 다시 연결해야 합니다.</p>
+      </div>
+
+      <p style="margin-top: 24px;">추가 도움이 필요하신가요? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">문의하기</a></p>
+    </div>
+
+    <footer>
+      &copy; 2026 Live Sidebar
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('active'));
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+      localStorage.setItem('live-sidebar-lang', lang);
+    }
+    const saved = localStorage.getItem('live-sidebar-lang');
+    if (saved) setLang(saved);
+  </script>
+</body>
+</html>
