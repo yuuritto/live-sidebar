@@ -5,3 +5,12 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude Code / 作業用ファイル（公開リポに入れない）
+worklog.md
+handover.md
+.claude/
+*.local.md
+
+# ビルド成果物
+*.zip
