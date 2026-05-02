@@ -1,0 +1,518 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0e0e10;
+  color: #efeff1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.lang-anchor {
+  display: none;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  padding: 16px 0 0;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid #2f2f35;
+  border-radius: 6px;
+  color: #adadb8;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  text-decoration: none;
+}
+
+.lang-btn:hover {
+  border-color: #bf94ff;
+  color: #efeff1;
+}
+
+.lang-btn.active {
+  background: #bf94ff;
+  border-color: #bf94ff;
+  color: #0e0e10;
+}
+
+body:has(.lang-anchor:target) .lang-btn.active {
+  background: transparent;
+  border-color: #2f2f35;
+  color: #adadb8;
+}
+
+body:has(#lang-en:target) .lang-btn[href="#lang-en"],
+body:has(#lang-ja:target) .lang-btn[href="#lang-ja"],
+body:has(#lang-zh:target) .lang-btn[href="#lang-zh"],
+body:has(#lang-ko:target) .lang-btn[href="#lang-ko"] {
+  background: #bf94ff;
+  border-color: #bf94ff;
+  color: #0e0e10;
+}
+
+[data-lang] {
+  display: none;
+}
+
+[data-lang].active {
+  display: block;
+}
+
+a[data-lang].active {
+  display: inline;
+}
+
+.feature-grid[data-lang].active,
+.pricing-grid[data-lang].active {
+  display: grid;
+}
+
+table[data-lang].active {
+  display: table;
+}
+
+body:has(.lang-anchor:target) [data-lang].active {
+  display: none;
+}
+
+body:has(.lang-anchor:target) a[data-lang].active {
+  display: none;
+}
+
+body:has(#lang-en:target) [data-lang="en"],
+body:has(#lang-ja:target) [data-lang="ja"],
+body:has(#lang-zh:target) [data-lang="zh"],
+body:has(#lang-ko:target) [data-lang="ko"] {
+  display: block;
+}
+
+body:has(#lang-en:target) a[data-lang="en"],
+body:has(#lang-ja:target) a[data-lang="ja"],
+body:has(#lang-zh:target) a[data-lang="zh"],
+body:has(#lang-ko:target) a[data-lang="ko"] {
+  display: inline;
+}
+
+body:has(#lang-en:target) .feature-grid[data-lang="en"],
+body:has(#lang-ja:target) .feature-grid[data-lang="ja"],
+body:has(#lang-zh:target) .feature-grid[data-lang="zh"],
+body:has(#lang-ko:target) .feature-grid[data-lang="ko"],
+body:has(#lang-en:target) .pricing-grid[data-lang="en"],
+body:has(#lang-ja:target) .pricing-grid[data-lang="ja"],
+body:has(#lang-zh:target) .pricing-grid[data-lang="zh"],
+body:has(#lang-ko:target) .pricing-grid[data-lang="ko"] {
+  display: grid;
+}
+
+body:has(#lang-en:target) table[data-lang="en"],
+body:has(#lang-ja:target) table[data-lang="ja"],
+body:has(#lang-zh:target) table[data-lang="zh"],
+body:has(#lang-ko:target) table[data-lang="ko"] {
+  display: table;
+}
+
+header {
+  border-bottom: 1px solid #2f2f35;
+  padding: 48px 0 40px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+header p {
+  color: #adadb8;
+  font-size: 1.15rem;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.features,
+.platforms,
+.pricing {
+  border-bottom: 1px solid #2f2f35;
+  padding: 48px 0;
+}
+
+.platforms {
+  text-align: center;
+}
+
+.features h2,
+.platforms h2,
+.pricing h2 {
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.platforms h2 {
+  margin-bottom: 16px;
+}
+
+.feature-grid,
+.pricing-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-card,
+.pricing-card,
+.steps,
+.faq-item {
+  background: #18181b;
+  border: 1px solid #2f2f35;
+  border-radius: 8px;
+}
+
+.feature-card {
+  padding: 24px;
+}
+
+.feature-card h3 {
+  color: #bf94ff;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: #adadb8;
+  font-size: 0.9rem;
+}
+
+.platform-badges {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.badge {
+  background: #18181b;
+  border: 1px solid #2f2f35;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+}
+
+.badge.twitch {
+  color: #a970ff;
+}
+
+.badge.youtube {
+  color: #ff4444;
+}
+
+.pricing-card {
+  padding: 28px;
+  text-align: center;
+}
+
+.pricing-card.pro {
+  border-color: #bf94ff;
+}
+
+.pricing-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.price,
+.pricing-card .price {
+  color: #efeff1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.price span,
+.pricing-card .price span {
+  color: #adadb8;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.pricing-card li {
+  color: #adadb8;
+  font-size: 0.9rem;
+  padding: 6px 0;
+}
+
+.pricing-card li::before {
+  color: #00c853;
+  content: "\\2713  ";
+  font-weight: 700;
+}
+
+.back {
+  color: #bf94ff;
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 16px 0;
+  text-decoration: none;
+}
+
+.back:hover,
+footer a:hover,
+td a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.updated {
+  color: #adadb8;
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+h2 {
+  color: #bf94ff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 32px 0 12px;
+}
+
+h3 {
+  color: #efeff1;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 20px 0 8px;
+}
+
+p,
+li {
+  color: #d3d3d8;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+ul,
+ol {
+  margin-bottom: 12px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+a {
+  color: #bf94ff;
+}
+
+strong {
+  color: #efeff1;
+}
+
+.steps,
+.faq-item {
+  margin: 12px 0;
+  padding: 16px 20px;
+}
+
+.steps ol {
+  margin-bottom: 0;
+}
+
+.steps li:last-child {
+  margin-bottom: 0;
+}
+
+.faq-q {
+  color: #efeff1;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.faq-a {
+  color: #d3d3d8;
+  margin-bottom: 0;
+}
+
+.pro-badge {
+  background: #bf94ff;
+  border-radius: 4px;
+  color: #0e0e10;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  vertical-align: middle;
+}
+
+.contact-note {
+  margin-top: 24px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #2f2f35;
+  font-size: 0.95rem;
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #bf94ff;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 200px;
+}
+
+td {
+  color: #d3d3d8;
+}
+
+td a {
+  color: #bf94ff;
+  text-decoration: none;
+}
+
+footer {
+  border-top: 1px solid #2f2f35;
+  color: #adadb8;
+  font-size: 0.85rem;
+  margin-top: 40px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #bf94ff;
+  text-decoration: none;
+}
+
+/* Keep language variants hidden even when later element styles set display. */
+[data-lang] {
+  display: none !important;
+}
+
+[data-lang].active {
+  display: block !important;
+}
+
+a[data-lang].active {
+  display: inline !important;
+}
+
+.feature-grid[data-lang].active,
+.pricing-grid[data-lang].active {
+  display: grid !important;
+}
+
+table[data-lang].active {
+  display: table !important;
+}
+
+body:has(.lang-anchor:target) [data-lang].active {
+  display: none !important;
+}
+
+body:has(#lang-en:target) [data-lang="en"],
+body:has(#lang-ja:target) [data-lang="ja"],
+body:has(#lang-zh:target) [data-lang="zh"],
+body:has(#lang-ko:target) [data-lang="ko"] {
+  display: block !important;
+}
+
+body:has(#lang-en:target) a[data-lang="en"],
+body:has(#lang-ja:target) a[data-lang="ja"],
+body:has(#lang-zh:target) a[data-lang="zh"],
+body:has(#lang-ko:target) a[data-lang="ko"] {
+  display: inline !important;
+}
+
+body:has(#lang-en:target) .feature-grid[data-lang="en"],
+body:has(#lang-ja:target) .feature-grid[data-lang="ja"],
+body:has(#lang-zh:target) .feature-grid[data-lang="zh"],
+body:has(#lang-ko:target) .feature-grid[data-lang="ko"],
+body:has(#lang-en:target) .pricing-grid[data-lang="en"],
+body:has(#lang-ja:target) .pricing-grid[data-lang="ja"],
+body:has(#lang-zh:target) .pricing-grid[data-lang="zh"],
+body:has(#lang-ko:target) .pricing-grid[data-lang="ko"] {
+  display: grid !important;
+}
+
+body:has(#lang-en:target) table[data-lang="en"],
+body:has(#lang-ja:target) table[data-lang="ja"],
+body:has(#lang-zh:target) table[data-lang="zh"],
+body:has(#lang-ko:target) table[data-lang="ko"] {
+  display: table !important;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .feature-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-badges {
+    gap: 12px;
+  }
+
+  .badge {
+    flex: 1;
+    padding: 10px 16px;
+  }
+
+  th {
+    font-size: 0.85rem;
+    width: 120px;
+  }
+
+  td {
+    font-size: 0.85rem;
+  }
+}

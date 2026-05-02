@@ -4,53 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Help — Live Sidebar</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0e0e10;
-      color: #efeff1;
-      line-height: 1.8;
-    }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-    .lang-switcher { display: flex; justify-content: flex-end; gap: 4px; padding: 16px 0 0; }
-    .lang-btn {
-      background: transparent; border: 1px solid #2f2f35; color: #adadb8;
-      padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
-    }
-    .lang-btn:hover { border-color: #bf94ff; color: #efeff1; }
-    .lang-btn.active { background: #bf94ff; color: #0e0e10; border-color: #bf94ff; }
-    .back { display: inline-block; padding: 16px 0; color: #bf94ff; text-decoration: none; font-size: 0.9rem; }
-    .back:hover { text-decoration: underline; }
-    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; }
-    h2 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 12px; color: #bf94ff; }
-    h3 { font-size: 1rem; font-weight: 600; margin: 20px 0 8px; color: #efeff1; }
-    p, li { font-size: 0.95rem; color: #d3d3d8; margin-bottom: 12px; }
-    ul, ol { padding-left: 24px; margin-bottom: 12px; }
-    li { margin-bottom: 6px; }
-    a { color: #bf94ff; }
-    strong { color: #efeff1; }
-    .steps { background: #18181b; border: 1px solid #2f2f35; border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
-    .steps ol { margin-bottom: 0; }
-    .steps li:last-child { margin-bottom: 0; }
-    .faq-item { background: #18181b; border: 1px solid #2f2f35; border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
-    .faq-q { font-weight: 600; color: #efeff1; margin-bottom: 8px; }
-    .faq-a { color: #d3d3d8; margin-bottom: 0; }
-    .pro-badge { background: #bf94ff; color: #0e0e10; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; vertical-align: middle; }
-    footer { padding: 40px 0; text-align: center; color: #adadb8; font-size: 0.85rem; border-top: 1px solid #2f2f35; margin-top: 40px; }
-    [data-lang] { display: none; }
-    [data-lang].active { display: block; }
-  </style>
+  <link rel="stylesheet" href="live-sidebar.css">
 </head>
 <body>
+  <span id="lang-en" class="lang-anchor"></span>
+  <span id="lang-ja" class="lang-anchor"></span>
+  <span id="lang-zh" class="lang-anchor"></span>
+  <span id="lang-ko" class="lang-anchor"></span>
   <div class="container">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('ja')">JA</button>
-      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
-      <button class="lang-btn" onclick="setLang('ko')">KO</button>
+    <div class="lang-switcher" aria-label="Language">
+      <a class="lang-btn active" href="#lang-en">EN</a>
+      <a class="lang-btn " href="#lang-ja">JA</a>
+      <a class="lang-btn " href="#lang-zh">ZH</a>
+      <a class="lang-btn " href="#lang-ko">KO</a>
     </div>
-    <a href="./" class="back" data-lang="en" style="display:inline-block">&larr; Back</a>
+    <a href="./" class="back active" data-lang="en">&larr; Back</a>
     <a href="./" class="back" data-lang="ja">&larr; トップに戻る</a>
     <a href="./" class="back" data-lang="zh">&larr; 返回首页</a>
     <a href="./" class="back" data-lang="ko">&larr; 돌아가기</a>
@@ -136,7 +104,7 @@
         <p class="faq-a">Open Settings &rarr; scroll to <strong>Data &amp; Privacy</strong> &rarr; click <strong>"Clear all data and reset"</strong>. You will need to reconnect your accounts.</p>
       </div>
 
-      <p style="margin-top: 24px;">Still need help? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">Contact us</a></p>
+      <p class="contact-note">Still need help? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">Contact us</a></p>
     </div>
 
     <!-- ==================== JAPANESE ==================== -->
@@ -220,7 +188,7 @@
         <p class="faq-a">設定を開く → <strong>「データ・プライバシー」</strong> → <strong>「全データを消去してリセット」</strong>をクリックしてください。アカウントの再接続が必要になります。</p>
       </div>
 
-      <p style="margin-top: 24px;">解決しない場合は<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">お問い合わせ</a>ください。</p>
+      <p class="contact-note">解決しない場合は<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">お問い合わせ</a>ください。</p>
     </div>
 
     <!-- ==================== CHINESE ==================== -->
@@ -304,7 +272,7 @@
         <p class="faq-a">打开设置 &rarr; <strong>"数据与隐私"</strong> &rarr; 点击<strong>"清除所有数据并重置"</strong>。之后需要重新连接账号。</p>
       </div>
 
-      <p style="margin-top: 24px;">仍需帮助？<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">联系我们</a></p>
+      <p class="contact-note">仍需帮助？<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">联系我们</a></p>
     </div>
 
     <!-- ==================== KOREAN ==================== -->
@@ -388,24 +356,12 @@
         <p class="faq-a">설정 열기 &rarr; <strong>"데이터 및 개인정보"</strong> &rarr; <strong>"모든 데이터 삭제 및 초기화"</strong> 클릭. 이후 계정을 다시 연결해야 합니다.</p>
       </div>
 
-      <p style="margin-top: 24px;">추가 도움이 필요하신가요? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">문의하기</a></p>
+      <p class="contact-note">추가 도움이 필요하신가요? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSbWLISd7ZpWGRhp2kvxbcxtRMpwEVe7srEay6lUH2knVQWQ/viewform" target="_blank" rel="noopener">문의하기</a></p>
     </div>
 
     <footer>
       &copy; 2026 Live Sidebar
     </footer>
   </div>
-
-  <script>
-    function setLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('active'));
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-      localStorage.setItem('live-sidebar-lang', lang);
-    }
-    const saved = localStorage.getItem('live-sidebar-lang');
-    if (saved) setLang(saved);
-  </script>
 </body>
 </html>
