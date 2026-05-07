@@ -10,6 +10,7 @@ Live Sidebar の公開ページ一式です。
 - Homepage: `https://ctun.net/live-sidebar/`
 - Help: `https://ctun.net/live-sidebar/help`
 - Privacy Policy: `https://ctun.net/live-sidebar/privacy-policy`
+- Terms of Service: `https://ctun.net/live-sidebar/terms`
 - Commercial disclosure: `https://ctun.net/live-sidebar/tokushoho`
 
 ## デプロイ注意
