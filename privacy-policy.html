@@ -26,7 +26,7 @@
     <!-- ENGLISH -->
     <div data-lang="en" class="active">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last Updated: March 20, 2026</p>
+      <p class="updated">Last Updated: May 11, 2026</p>
 
       <h2>Overview</h2>
       <p>Live Sidebar is a Chrome browser extension that displays your Twitch followed channels and YouTube subscribed channels in a unified sidebar, showing their live streaming status. This Privacy Policy describes how Live Sidebar ("we", "our", or "the Extension") collects, uses, stores, and shares your information.</p>
@@ -44,16 +44,25 @@
 
       <h3>Data Accessed via YouTube API</h3>
       <ul>
-        <li>Your YouTube channel ID and channel title</li>
-        <li>Your list of subscribed channels</li>
+        <li>Your Google account identifier (the <code>sub</code> claim) and basic profile information returned by Google's <code>userinfo</code> endpoint, which may include your display name and the email address associated with your Google account. This is used solely as a label so you can tell connected accounts apart in the side panel when you connect more than one. It is stored locally on your device using <code>chrome.storage.local</code> and is not transmitted to us.</li>
+        <li>Your list of subscribed channels and their channel IDs / titles</li>
         <li>Live streaming status of your subscribed channels (stream title, viewer count, thumbnails)</li>
       </ul>
+
+      <h3>Data Related to Pro Subscription (Optional)</h3>
+      <p>If you choose to upgrade to a paid Pro plan, the Extension uses <strong>ExtensionPay</strong> (extensionpay.com) as the subscription management service and <strong>Stripe</strong> as the payment processor. These third parties operate independently and have their own privacy policies. The data flow is as follows:</p>
+      <ul>
+        <li>The Extension generates a random opaque identifier (an ExtensionPay "API key") that is sent to <code>extensionpay.com</code> to query your subscription status. This identifier is not derived from your Google or Twitch account.</li>
+        <li>When you initiate a purchase, ExtensionPay redirects you to its payment page where you provide your email address and payment details directly to ExtensionPay and Stripe. We never receive or store your payment information or the email address you provide there.</li>
+        <li>The Extension stores ExtensionPay's API key, the install / paid / trial timestamps it returns, and your cached Pro status using Chrome's storage APIs. Some of this metadata is saved through <code>chrome.storage.sync</code> by the ExtensionPay client library, which means it may sync to your other signed-in Chrome browsers.</li>
+      </ul>
+      <p>For details on how Stripe handles your information, see <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>. ExtensionPay does not publish a standalone consumer-facing privacy policy; you can reach the ExtensionPay operator via <a href="https://extensionpay.com/" target="_blank" rel="noopener">extensionpay.com</a>.</p>
 
       <h3>Data We Do NOT Collect</h3>
       <ul>
         <li>We do <strong>not</strong> collect your browsing history or web activity</li>
-        <li>We do <strong>not</strong> collect personal information such as your name, email address, or physical address</li>
-        <li>We do <strong>not</strong> collect payment information (payments, if any, are processed entirely by third-party payment providers)</li>
+        <li>We do <strong>not</strong> collect your physical address</li>
+        <li>We do <strong>not</strong> receive or store your payment information (card numbers, billing address, etc.); this is handled directly by ExtensionPay and Stripe</li>
         <li>We do <strong>not</strong> collect analytics or usage tracking data</li>
       </ul>
 
@@ -75,12 +84,16 @@
       </ul>
 
       <h2>Data Sharing</h2>
-      <p>We do <strong>not</strong> sell, trade, license, or share your data with any third parties.</p>
-      <p>Your data is only transmitted to:</p>
+      <p>We do <strong>not</strong> sell, trade, license, or share your data with any third parties for advertising, marketing, or analytics purposes.</p>
+      <p>Your data is transmitted only to the following endpoints, each strictly for the functionality described:</p>
       <ul>
-        <li><strong>Twitch API</strong> (api.twitch.tv) — to retrieve your followed channels and their live status</li>
-        <li><strong>YouTube Data API</strong> (googleapis.com) — to retrieve your subscribed channels and their live status</li>
+        <li><strong>Twitch API</strong> (api.twitch.tv, id.twitch.tv) — to retrieve your followed channels and their live status, and to validate / refresh / revoke OAuth tokens</li>
+        <li><strong>YouTube Data API</strong> (googleapis.com) — to retrieve your subscribed channels and their live status, and to obtain your Google account profile (<code>userinfo</code>) for account labeling</li>
         <li><strong>YouTube RSS Feeds</strong> (youtube.com/feeds) — to check for recent videos (no authentication required, no user data transmitted)</li>
+        <li><strong>Google OAuth</strong> (accounts.google.com) — to perform sign-in and to revoke tokens on disconnect</li>
+        <li><strong>Live Sidebar OAuth proxy</strong> (live-sidebar-proxy.yuuritto.workers.dev, operated on Cloudflare Workers by us) — to exchange and refresh OAuth tokens while keeping the OAuth client secret server-side. The proxy does not log request bodies or persist tokens.</li>
+        <li><strong>ExtensionPay</strong> (extensionpay.com) — only if you use Pro features; receives the random ExtensionPay API key and the extension identifier. Used to verify subscription status and to display the payment / login / management pages.</li>
+        <li><strong>Stripe</strong> (stripe.com, invoked via ExtensionPay) — only if you complete a purchase; receives the email address and payment details you enter on its hosted checkout. We do not receive or store this information.</li>
       </ul>
 
       <h2>Data Retention and Deletion</h2>
@@ -125,7 +138,7 @@
     <!-- JAPANESE -->
     <div data-lang="ja">
       <h1>プライバシーポリシー</h1>
-      <p class="updated">最終更新日: 2026年3月20日</p>
+      <p class="updated">最終更新日: 2026年5月11日</p>
 
       <h2>概要</h2>
       <p>Live Sidebarは、TwitchのフォローチャンネルとYouTubeの登録チャンネルのライブ配信状況を統合サイドバーに表示するChrome拡張機能です。本プライバシーポリシーは、Live Sidebar（以下「当拡張機能」）がお客様の情報をどのように収集、使用、保存、共有するかについて説明します。</p>
@@ -143,16 +156,25 @@
 
       <h3>YouTube APIを通じてアクセスするデータ</h3>
       <ul>
-        <li>YouTubeチャンネルIDおよびチャンネル名</li>
-        <li>登録チャンネル一覧</li>
+        <li>Googleアカウント識別子（<code>sub</code> クレーム）および Google の <code>userinfo</code> エンドポイントから返される基本プロフィール情報。これにはお客様の表示名と、Googleアカウントに紐づくメールアドレスが含まれる場合があります。これは複数アカウントを連携した際にサイドパネル上で識別できるラベルとしてのみ使用され、Chromeの <code>chrome.storage.local</code> によりお客様のデバイス内にローカル保存されます。当方には送信されません。</li>
+        <li>登録チャンネル一覧およびそれらのチャンネルIDとチャンネル名</li>
         <li>登録チャンネルのライブ配信状況（配信タイトル、視聴者数、サムネイル）</li>
       </ul>
+
+      <h3>Proサブスクリプションに関するデータ（任意）</h3>
+      <p>Proプランへのアップグレードを選択された場合、当拡張機能はサブスクリプション管理に <strong>ExtensionPay</strong>（extensionpay.com）を、決済処理に <strong>Stripe</strong> を利用します。これらの第三者サービスは独立して運営されており、それぞれ独自のプライバシーポリシーを持ちます。データの流れは以下の通りです：</p>
+      <ul>
+        <li>当拡張機能は ExtensionPay 用のランダムな不透明識別子（「APIキー」）を生成し、これを <code>extensionpay.com</code> に送信してサブスクリプション状態を照会します。この識別子は Google や Twitch アカウントから派生したものではありません。</li>
+        <li>購入を開始すると、ExtensionPay が決済ページへリダイレクトします。そこでお客様は ExtensionPay と Stripe に対し直接、メールアドレスと支払い情報を入力します。当方がそこで入力された情報を受け取ったり保存することはありません。</li>
+        <li>当拡張機能は、ExtensionPay の APIキー、ExtensionPay が返却するインストール/支払/トライアル日時、およびキャッシュ済みのPro状態を Chrome ストレージAPIで保存します。これらのメタデータの一部は ExtensionPay のクライアントライブラリにより <code>chrome.storage.sync</code> に保存されるため、サインイン済みの他の Chrome ブラウザに同期される可能性があります。</li>
+      </ul>
+      <p>Stripe の情報取扱いについては <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe プライバシーポリシー</a>をご参照ください。ExtensionPay は利用者向けの独立したプライバシーポリシーを公開していません。ExtensionPay 運営元への連絡は <a href="https://extensionpay.com/" target="_blank" rel="noopener">extensionpay.com</a> をご利用ください。</p>
 
       <h3>収集しないデータ</h3>
       <ul>
         <li>閲覧履歴やウェブ上の行動は収集<strong>しません</strong></li>
-        <li>氏名、メールアドレス、住所などの個人情報は収集<strong>しません</strong></li>
-        <li>決済情報は収集<strong>しません</strong>（決済がある場合、すべて第三者の決済プロバイダーが処理します）</li>
+        <li>住所は収集<strong>しません</strong></li>
+        <li>支払情報（カード番号、請求先住所等）を当方が受信または保存することは<strong>ありません</strong>。これらは ExtensionPay および Stripe が直接取り扱います</li>
         <li>分析データや利用追跡データは収集<strong>しません</strong></li>
       </ul>
 
@@ -174,12 +196,16 @@
       </ul>
 
       <h2>データの共有</h2>
-      <p>お客様のデータを第三者に販売、取引、ライセンス供与、共有することは<strong>ありません</strong>。</p>
-      <p>データの送信先は以下に限定されます：</p>
+      <p>広告、マーケティング、分析目的で第三者にお客様のデータを販売、取引、ライセンス供与、共有することは<strong>ありません</strong>。</p>
+      <p>データの送信先は以下に限定され、各送信先は記載の機能のためにのみ使用されます：</p>
       <ul>
-        <li><strong>Twitch API</strong>（api.twitch.tv）— フォローチャンネルとライブ状況の取得</li>
-        <li><strong>YouTube Data API</strong>（googleapis.com）— 登録チャンネルとライブ状況の取得</li>
+        <li><strong>Twitch API</strong>（api.twitch.tv, id.twitch.tv）— フォローチャンネルとライブ状況の取得、および OAuthトークンの validate / refresh / revoke</li>
+        <li><strong>YouTube Data API</strong>（googleapis.com）— 登録チャンネルとライブ状況の取得、およびアカウントラベル用に Google アカウントの <code>userinfo</code> を取得</li>
         <li><strong>YouTube RSSフィード</strong>（youtube.com/feeds）— 最新動画の確認（認証不要、ユーザーデータの送信なし）</li>
+        <li><strong>Google OAuth</strong>（accounts.google.com）— サインインおよび連携解除時のトークン失効</li>
+        <li><strong>Live Sidebar OAuth プロキシ</strong>（live-sidebar-proxy.yuuritto.workers.dev、当方が Cloudflare Workers 上で運営）— OAuth クライアントシークレットをサーバー側に保持しつつ OAuthトークンの交換とリフレッシュを行います。プロキシはリクエスト本文をログに残さず、トークンを永続化しません。</li>
+        <li><strong>ExtensionPay</strong>（extensionpay.com）— Pro 機能利用時のみ。ExtensionPay の APIキーと拡張機能識別子が送信されます。サブスクリプション状態の確認および決済/ログイン/管理ページの表示に使用されます。</li>
+        <li><strong>Stripe</strong>（stripe.com、ExtensionPay を経由して呼び出されます）— 購入を完了した場合のみ。Stripe のホスト型決済ページでお客様が入力するメールアドレスと支払情報を Stripe が受信します。当方はこれらの情報を受信または保存しません。</li>
       </ul>
 
       <h2>データの保持と削除</h2>
@@ -224,7 +250,7 @@
     <!-- CHINESE -->
     <div data-lang="zh">
       <h1>隐私政策</h1>
-      <p class="updated">最后更新：2026年3月20日</p>
+      <p class="updated">最后更新：2026年5月11日</p>
 
       <h2>概述</h2>
       <p>Live Sidebar 是一款 Chrome 浏览器扩展程序，可在统一的侧边栏中显示您关注的 Twitch 频道和 YouTube 订阅频道的直播状态。本隐私政策描述了 Live Sidebar（以下简称"我们"或"本扩展程序"）如何收集、使用、存储和共享您的信息。</p>
@@ -242,16 +268,25 @@
 
       <h3>通过 YouTube API 访问的数据</h3>
       <ul>
-        <li>您的 YouTube 频道 ID 和频道名称</li>
-        <li>您的订阅频道列表</li>
+        <li>您的 Google 帐户标识符（<code>sub</code> 声明）以及 Google <code>userinfo</code> 端点返回的基本个人资料信息，其中可能包括您的显示名称和与 Google 帐户关联的电子邮件地址。这些信息仅用作标签，以便您在侧边栏中区分已连接的多个帐户。它通过 <code>chrome.storage.local</code> 存储在您的设备本地，不会传输给我们。</li>
+        <li>您的订阅频道列表及其频道 ID 和频道名称</li>
         <li>订阅频道的直播状态（直播标题、观看人数、缩略图）</li>
       </ul>
+
+      <h3>与 Pro 订阅相关的数据（可选）</h3>
+      <p>如果您选择升级到付费 Pro 计划，本扩展程序将使用 <strong>ExtensionPay</strong>（extensionpay.com）作为订阅管理服务，并使用 <strong>Stripe</strong> 作为支付处理方。这些第三方独立运营,各自拥有独立的隐私政策。数据流程如下：</p>
+      <ul>
+        <li>本扩展程序生成一个随机的不透明标识符（ExtensionPay "API 密钥"），并将其发送到 <code>extensionpay.com</code> 以查询您的订阅状态。此标识符不是从您的 Google 或 Twitch 帐户派生的。</li>
+        <li>当您发起购买时，ExtensionPay 会将您重定向到其支付页面，您将在该页面直接向 ExtensionPay 和 Stripe 提供您的电子邮件地址和支付详情。我们绝不会接收或存储您在那里提供的支付信息或电子邮件地址。</li>
+        <li>本扩展程序使用 Chrome 存储 API 保存 ExtensionPay 的 API 密钥、其返回的安装/付款/试用时间戳，以及缓存的 Pro 状态。其中部分元数据由 ExtensionPay 客户端库通过 <code>chrome.storage.sync</code> 保存，因此可能会同步到您已登录的其他 Chrome 浏览器。</li>
+      </ul>
+      <p>有关 Stripe 如何处理您的信息的详细信息，请参阅 <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe 隐私政策</a>。ExtensionPay 未发布面向最终用户的独立隐私政策；您可以通过 <a href="https://extensionpay.com/" target="_blank" rel="noopener">extensionpay.com</a> 联系 ExtensionPay 运营方。</p>
 
       <h3>我们不收集的数据</h3>
       <ul>
         <li>我们<strong>不</strong>收集您的浏览历史或网络活动</li>
-        <li>我们<strong>不</strong>收集姓名、电子邮件地址或实际地址等个人信息</li>
-        <li>我们<strong>不</strong>收集支付信息（如有支付，均由第三方支付提供商处理）</li>
+        <li>我们<strong>不</strong>收集您的实际地址</li>
+        <li>我们<strong>不</strong>接收或存储您的支付信息（卡号、账单地址等）；这些信息由 ExtensionPay 和 Stripe 直接处理</li>
         <li>我们<strong>不</strong>收集分析或使用追踪数据</li>
       </ul>
 
@@ -273,12 +308,16 @@
       </ul>
 
       <h2>数据共享</h2>
-      <p>我们<strong>不会</strong>向任何第三方出售、交易、许可或共享您的数据。</p>
-      <p>您的数据仅传输至：</p>
+      <p>我们<strong>不会</strong>为广告、营销或分析目的向任何第三方出售、交易、许可或共享您的数据。</p>
+      <p>您的数据仅传输至以下端点，每个端点严格用于所述功能：</p>
       <ul>
-        <li><strong>Twitch API</strong>（api.twitch.tv）— 获取您关注的频道及其直播状态</li>
-        <li><strong>YouTube Data API</strong>（googleapis.com）— 获取您订阅的频道及其直播状态</li>
+        <li><strong>Twitch API</strong>（api.twitch.tv, id.twitch.tv）— 获取您关注的频道及其直播状态，以及验证/刷新/撤销 OAuth 令牌</li>
+        <li><strong>YouTube Data API</strong>（googleapis.com）— 获取您订阅的频道及其直播状态，以及获取 Google 帐户 <code>userinfo</code> 用于帐户标签</li>
         <li><strong>YouTube RSS 源</strong>（youtube.com/feeds）— 检查最新视频（无需认证，不传输用户数据）</li>
+        <li><strong>Google OAuth</strong>（accounts.google.com）— 进行登录和断开连接时撤销令牌</li>
+        <li><strong>Live Sidebar OAuth 代理</strong>（live-sidebar-proxy.yuuritto.workers.dev，由我们在 Cloudflare Workers 上运营）— 在将 OAuth 客户端密钥保持在服务器端的同时进行 OAuth 令牌的交换和刷新。该代理不记录请求正文，也不持久化令牌。</li>
+        <li><strong>ExtensionPay</strong>（extensionpay.com）— 仅在使用 Pro 功能时；接收 ExtensionPay API 密钥和扩展标识符。用于验证订阅状态和显示支付/登录/管理页面。</li>
+        <li><strong>Stripe</strong>（stripe.com，通过 ExtensionPay 调用）— 仅在您完成购买时；Stripe 会接收您在其托管结账页上输入的电子邮件地址和支付详情。我们不会接收或存储这些信息。</li>
       </ul>
 
       <h2>数据保留和删除</h2>
@@ -323,7 +362,7 @@
     <!-- KOREAN -->
     <div data-lang="ko">
       <h1>개인정보 처리방침</h1>
-      <p class="updated">최종 업데이트: 2026년 3월 20일</p>
+      <p class="updated">최종 업데이트: 2026년 5월 11일</p>
 
       <h2>개요</h2>
       <p>Live Sidebar는 팔로우 중인 Twitch 채널과 구독 중인 YouTube 채널의 라이브 방송 상태를 통합 사이드바에 표시하는 Chrome 브라우저 확장 프로그램입니다. 본 개인정보 처리방침은 Live Sidebar(이하 "당사" 또는 "본 확장 프로그램")가 사용자의 정보를 수집, 사용, 저장 및 공유하는 방법을 설명합니다.</p>
@@ -341,16 +380,25 @@
 
       <h3>YouTube API를 통해 액세스하는 데이터</h3>
       <ul>
-        <li>YouTube 채널 ID 및 채널 이름</li>
-        <li>구독 채널 목록</li>
+        <li>Google 계정 식별자(<code>sub</code> 클레임) 및 Google <code>userinfo</code> 엔드포인트에서 반환되는 기본 프로필 정보. 여기에는 사용자의 표시 이름과 Google 계정에 연결된 이메일 주소가 포함될 수 있습니다. 이는 사용자가 두 개 이상의 계정을 연결한 경우 사이드 패널에서 연결된 계정을 구분할 수 있도록 라벨로만 사용되며, <code>chrome.storage.local</code>을 사용하여 사용자의 기기에 로컬 저장되며 당사로 전송되지 않습니다.</li>
+        <li>구독 채널 목록 및 채널 ID와 채널 이름</li>
         <li>구독 채널의 라이브 방송 상태 (방송 제목, 시청자 수, 썸네일)</li>
       </ul>
+
+      <h3>Pro 구독 관련 데이터 (선택 사항)</h3>
+      <p>유료 Pro 플랜으로 업그레이드를 선택하시면, 본 확장 프로그램은 구독 관리 서비스로 <strong>ExtensionPay</strong>(extensionpay.com)를, 결제 처리 업체로 <strong>Stripe</strong>를 사용합니다. 이들 제3자는 독립적으로 운영되며 자체적인 개인정보 처리방침을 갖고 있습니다. 데이터 흐름은 다음과 같습니다:</p>
+      <ul>
+        <li>본 확장 프로그램은 ExtensionPay용 무작위 불투명 식별자("API 키")를 생성하여 <code>extensionpay.com</code>에 전송하여 구독 상태를 조회합니다. 이 식별자는 Google이나 Twitch 계정에서 파생된 것이 아닙니다.</li>
+        <li>구매를 시작하면 ExtensionPay가 결제 페이지로 리디렉션하며, 그 페이지에서 사용자는 ExtensionPay와 Stripe에 직접 이메일 주소와 결제 정보를 입력하게 됩니다. 당사는 그 곳에서 입력된 결제 정보나 이메일 주소를 수신하거나 저장하지 않습니다.</li>
+        <li>본 확장 프로그램은 ExtensionPay의 API 키, ExtensionPay가 반환하는 설치/결제/체험 시작 타임스탬프, 그리고 캐시된 Pro 상태를 Chrome 저장소 API로 저장합니다. 이 메타데이터 중 일부는 ExtensionPay 클라이언트 라이브러리에 의해 <code>chrome.storage.sync</code>에 저장되므로 로그인한 다른 Chrome 브라우저로 동기화될 수 있습니다.</li>
+      </ul>
+      <p>Stripe가 사용자의 정보를 어떻게 취급하는지에 대한 자세한 내용은 <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe 개인정보 처리방침</a>을 참조하세요. ExtensionPay는 최종 사용자를 위한 독립된 개인정보 처리방침을 게시하지 않습니다. ExtensionPay 운영자에 대한 문의는 <a href="https://extensionpay.com/" target="_blank" rel="noopener">extensionpay.com</a>을 통해 진행해 주세요.</p>
 
       <h3>수집하지 않는 데이터</h3>
       <ul>
         <li>브라우징 기록이나 웹 활동을 수집하지 <strong>않습니다</strong></li>
-        <li>이름, 이메일 주소, 실제 주소 등 개인 정보를 수집하지 <strong>않습니다</strong></li>
-        <li>결제 정보를 수집하지 <strong>않습니다</strong> (결제가 있는 경우 전적으로 제3자 결제 제공업체가 처리합니다)</li>
+        <li>실제 주소를 수집하지 <strong>않습니다</strong></li>
+        <li>결제 정보(카드 번호, 청구지 주소 등)를 당사가 수신하거나 저장하지 <strong>않습니다</strong>. 이는 ExtensionPay와 Stripe가 직접 처리합니다</li>
         <li>분석 또는 사용 추적 데이터를 수집하지 <strong>않습니다</strong></li>
       </ul>
 
@@ -372,12 +420,16 @@
       </ul>
 
       <h2>데이터 공유</h2>
-      <p>당사는 사용자의 데이터를 제3자에게 판매, 거래, 라이선스 부여 또는 공유하지 <strong>않습니다</strong>.</p>
-      <p>데이터는 다음으로만 전송됩니다:</p>
+      <p>광고, 마케팅, 분석 목적으로 제3자에게 사용자의 데이터를 판매, 거래, 라이선스 부여 또는 공유하지 <strong>않습니다</strong>.</p>
+      <p>데이터는 다음 엔드포인트로만 전송되며, 각 엔드포인트는 명시된 기능에 한해서만 사용됩니다:</p>
       <ul>
-        <li><strong>Twitch API</strong> (api.twitch.tv) — 팔로우 채널 및 라이브 상태 조회</li>
-        <li><strong>YouTube Data API</strong> (googleapis.com) — 구독 채널 및 라이브 상태 조회</li>
+        <li><strong>Twitch API</strong> (api.twitch.tv, id.twitch.tv) — 팔로우 채널 및 라이브 상태 조회, OAuth 토큰의 검증/갱신/취소</li>
+        <li><strong>YouTube Data API</strong> (googleapis.com) — 구독 채널 및 라이브 상태 조회, 계정 라벨링용 Google 계정 <code>userinfo</code> 조회</li>
         <li><strong>YouTube RSS 피드</strong> (youtube.com/feeds) — 최신 동영상 확인 (인증 불필요, 사용자 데이터 전송 없음)</li>
+        <li><strong>Google OAuth</strong> (accounts.google.com) — 로그인 및 연결 해제 시 토큰 취소</li>
+        <li><strong>Live Sidebar OAuth 프록시</strong> (live-sidebar-proxy.yuuritto.workers.dev, 당사가 Cloudflare Workers 상에서 운영) — OAuth 클라이언트 시크릿을 서버 측에 보관한 채 OAuth 토큰의 교환 및 갱신을 수행합니다. 프록시는 요청 본문을 로그에 남기지 않으며 토큰을 영속화하지 않습니다.</li>
+        <li><strong>ExtensionPay</strong> (extensionpay.com) — Pro 기능 사용 시에만; ExtensionPay API 키와 확장 프로그램 식별자가 전송됩니다. 구독 상태 확인과 결제/로그인/관리 페이지 표시에 사용됩니다.</li>
+        <li><strong>Stripe</strong> (stripe.com, ExtensionPay를 통해 호출됨) — 구매를 완료한 경우에만; Stripe가 호스팅하는 체크아웃 페이지에서 사용자가 입력하는 이메일 주소와 결제 정보를 Stripe가 수신합니다. 당사는 이러한 정보를 수신하거나 저장하지 않습니다.</li>
       </ul>
 
       <h2>데이터 보존 및 삭제</h2>
