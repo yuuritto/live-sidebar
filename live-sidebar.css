@@ -177,7 +177,8 @@ header p {
 .feature-card,
 .pricing-card,
 .steps,
-.faq-item {
+.faq-item,
+.changelog {
   background: #18181b;
   border: 1px solid #2f2f35;
   border-radius: 8px;
@@ -335,9 +336,47 @@ strong {
 }
 
 .steps,
-.faq-item {
+.faq-item,
+.changelog {
   margin: 12px 0;
   padding: 16px 20px;
+}
+
+.changelog h3 {
+  color: #bf94ff;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.changelog ul {
+  color: #d3d3d8;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.changelog li {
+  margin-bottom: 6px;
+}
+
+.changelog li:last-child {
+  margin-bottom: 0;
+}
+
+.changelog em {
+  color: #efeff1;
+  font-style: normal;
+  font-weight: 600;
+}
+
+kbd {
+  background: #0e0e10;
+  border: 1px solid #444;
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 #000;
+  color: #efeff1;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85em;
+  padding: 1px 6px;
 }
 
 .steps ol {
