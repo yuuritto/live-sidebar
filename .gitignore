@@ -14,3 +14,8 @@ handover.md
 
 # ビルド成果物
 *.zip
+dist/
+.astro/
+
+# 依存関係（npm install で再取得可能）
+node_modules/

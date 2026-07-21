@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Canonical privacy policy lives at /privacy-policy (privacy-policy.html).
+# The old /privacy alias was a stale duplicate that omitted the Pro / Stripe /
+# ExtensionPay / chrome.storage.sync disclosures, so it now 301s to the canonical page.
+/privacy /privacy-policy 301
